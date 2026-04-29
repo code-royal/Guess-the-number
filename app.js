@@ -15,8 +15,7 @@ checkBtn.addEventListener('click',()=>{
         resultDisplay.style.color = "#c81d25";
     }
     else if(guess === randomNum){
-        recents.style.color = "#008000";
-        recents.innerHTML += `${guess}<br>`;
+        recents.innerHTML += `${guess} Correct guess!!<br>`;
         resultDisplay.textContent = "Congrats!!🥳 You guessed it right."; //if the user guessed it right
         resultDisplay.style.color = "#008000";
         guess.value = "";
@@ -24,8 +23,12 @@ checkBtn.addEventListener('click',()=>{
         restartBtn.style.display = "inline-block"; //unhides restart button
     }
     else {
-        recents.style.color = "#c81d25";
-        recents.innerHTML += `${guess}<br>`;
+        if(guess<randomNum){
+            recents.innerHTML += `${guess} Too low<br>`;
+        }
+        else if(guess>randomNum){
+            recents.innerHTML += `${guess} Too high<br>`;
+        }
         resultDisplay.textContent = guess < randomNum ? "Guess a higher number!!" : "Guess a lower number!!";
         resultDisplay.style.color = "#c81d25";
         guess.value = "";
