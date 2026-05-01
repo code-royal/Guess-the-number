@@ -45,4 +45,11 @@ restartBtn.addEventListener('click', ()=>{
         checkBtn.style.display = "inline-block"; //unhides check button
         guessInput.focus();
         recents.textContent = "";
+        askPrompt();
     })
+
+
+function askPrompt(){
+    guessAmount = prompt("Enter in how many guesses will you guess right?");
+}
+askPrompt();
